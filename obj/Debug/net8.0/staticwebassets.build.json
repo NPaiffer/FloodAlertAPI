@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Lz7XOYIRzWMbXHDHL2dEr/nWJ9Eapgnt7CWKRcEJBPg=",
+  "Source": "FloodAlertAPI",
+  "BasePath": "_content/FloodAlertAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

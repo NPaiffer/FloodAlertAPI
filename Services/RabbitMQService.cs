@@ -1,41 +1,42 @@
-namespace FloodAlertAPI.Services;
-
+using Microsoft.EntityFrameworkCore.Metadata;
 using RabbitMQ.Client;
 using System.Text;
 
+namespace FloodAlertAPI.Services;
+
 public class RabbitMQService
 {
-    private readonly IConnection _connection;
-    private readonly IModel _channel;
-    private readonly string _queueName = "flood-alert-queue";
+        private readonly RabbitMQ.Client.IConnection _connection;
+        private readonly RabbitMQ.Client.IModel _channel;
 
     public RabbitMQService()
     {
         var factory = new ConnectionFactory()
         {
             HostName = "localhost",
-            UserName = "guest", // ou seu usuário
-            Password = "guest"  // ou sua senha
+            Port = 5672
         };
 
         _connection = factory.CreateConnection();
         _channel = _connection.CreateModel();
 
-        _channel.QueueDeclare(queue: _queueName,
-                              durable: false,
-                              exclusive: false,
-                              autoDelete: false,
-                              arguments: null);
+        _channel.QueueDeclare(queue: "flood_alert_queue",
+                             durable: false,
+                             exclusive: false,
+                             autoDelete: false,
+                             arguments: null);
     }
 
-    public void SendMessage(string message)
+    public void PublicarMensagem(string mensagem)
     {
-        var body = Encoding.UTF8.GetBytes(message);
+        var body = Encoding.UTF8.GetBytes(mensagem);
 
         _channel.BasicPublish(exchange: "",
-                              routingKey: _queueName,
+                              routingKey: "flood_alert_queue",
                               basicProperties: null,
                               body: body);
+
+        Console.WriteLine($" [✔️] Mensagem enviada: {mensagem}");
     }
 
     public void Dispose()

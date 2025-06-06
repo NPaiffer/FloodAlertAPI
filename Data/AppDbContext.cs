@@ -1,5 +1,7 @@
-using Microsoft.EntityFrameworkCore;
 using FloodAlertAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace FloodAlertAPI.Data;
 
 public class AppDbContext : DbContext
 {

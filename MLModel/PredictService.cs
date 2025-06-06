@@ -21,4 +21,9 @@ public class PredictService
         var input = new ModelInput { NivelAgua = nivelAgua, Frequencia = frequencia };
         return _predictionEngine.Predict(input);
     }
+
+    internal object PreverEnchente(double nivelDaAgua)
+    {
+        throw new NotImplementedException();
+    }
 }

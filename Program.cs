@@ -1,5 +1,6 @@
 using FloodAlertAPI.Data;
 using FloodAlertAPI.Services;
+using FloodAlertAPI.ML;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -25,5 +26,7 @@ app.UseSwaggerUI();
 
 app.UseAuthorization();
 app.MapControllers();
+
+FloodModelTrainer.TreinarModelo();
 
 app.Run();

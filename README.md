@@ -1,13 +1,13 @@
 # Integrantes: <br>
 Alissa Silva Cezero - RM552535 <br> Melissa Barbosa de Souza - RM552535 <br> Nicolas Paiffer do Carmo - RM554145
 
-# 🌊 FloodAlertAPI
+# FloodAlertAPI
 
 API RESTful para monitoramento de enchentes, desenvolvida com .NET 6, ML.NET e RabbitMQ. O sistema visa prever enchentes com base em dados meteorológicos e níveis de água, oferecendo suporte a alertas em tempo real por mensageria.
 
 ---
 
-## 📌 Visão Geral
+## Visão Geral
 
 FloodAlertAPI é um projeto acadêmico com o propósito de aplicar práticas modernas de desenvolvimento backend, incluindo:
 
@@ -20,7 +20,7 @@ FloodAlertAPI é um projeto acadêmico com o propósito de aplicar práticas mod
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 | Ferramenta         | Descrição                                      |
 |--------------------|------------------------------------------------|
@@ -33,7 +33,7 @@ FloodAlertAPI é um projeto acadêmico com o propósito de aplicar práticas mod
 
 ---
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos:
 
@@ -65,7 +65,7 @@ https://localhost:5001/swagger
 
 ---
 
-## 🧪 Endpoints da API
+## Endpoints da API
 
 ### 🔹 `GET /api/usuario`
 
@@ -103,7 +103,7 @@ Envia dados meteorológicos para prever enchente com ML.NET.
 }
 ```
 
-> ⚠️ O campo `enchente` é necessário para o modelo validar internamente os dados.
+> O campo `enchente` é necessário para o modelo validar internamente os dados.
 
 **Resposta esperada:**
 
@@ -116,7 +116,7 @@ Envia dados meteorológicos para prever enchente com ML.NET.
 
 ---
 
-## 🤖 Machine Learning com ML.NET
+## Machine Learning com ML.NET
 
 O modelo `Model.zip` foi treinado previamente com dados contendo:
 
@@ -129,11 +129,11 @@ Na aplicação, ele é carregado pelo serviço `PredictService` e utilizado em `
 
 ---
 
-## 📡 RabbitMQ
+## RabbitMQ
 
 O serviço `RabbitMQService` envia mensagens para a fila `flood_alert_queue` sempre que uma enchente é prevista.
 
-### ✅ Já implementado:
+### Já implementado:
 - Conexão com RabbitMQ
 - Declaração da fila
 - Envio de mensagens com `BasicPublish`
